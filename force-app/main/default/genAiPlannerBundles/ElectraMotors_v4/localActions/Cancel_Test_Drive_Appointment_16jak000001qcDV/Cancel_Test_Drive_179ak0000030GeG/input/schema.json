@@ -1,0 +1,14 @@
+{
+  "required" : [ "serviceAppointmentId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "serviceAppointmentId" : {
+      "title" : "serviceAppointmentId",
+      "description" : "testDriveId confirmed by the user",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,37 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "isTestDriveNotFound" : {
+      "title" : "isTestDriveNotFound",
+      "description" : "Determines TestDrive is available or not",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "leadRecord" : {
+      "title" : "leadRecord",
+      "description" : "leadRecord",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Lead"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "testDrives" : {
+      "title" : "testDrives",
+      "description" : "List of Test Drive Appointment Related to the lead/customer",
+      "maxItems" : 2000,
+      "items" : {
+        "lightning:type" : "@apexClassType/c__TestDriveInfo"
+      },
+      "lightning:type" : "lightning__listType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

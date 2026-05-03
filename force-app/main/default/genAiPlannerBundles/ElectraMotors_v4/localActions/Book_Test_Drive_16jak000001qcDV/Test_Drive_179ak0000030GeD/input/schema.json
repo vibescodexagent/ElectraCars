@@ -1,0 +1,49 @@
+{
+  "required" : [ "leadId", "scheduledEndTime", "scheduledStartTime", "serviceResourceId", "serviceTerritoryId", "vehicleId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "leadId" : {
+      "title" : "leadId",
+      "description" : "leadId",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "scheduledEndTime" : {
+      "title" : "scheduledEndTime",
+      "description" : "scheduledEndTime",
+      "lightning:type" : "lightning__dateTimeStringType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "scheduledStartTime" : {
+      "title" : "scheduledStartTime",
+      "description" : "scheduledStartTime",
+      "lightning:type" : "lightning__dateTimeStringType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "serviceResourceId" : {
+      "title" : "serviceResourceId",
+      "description" : "serviceResourceId",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "serviceTerritoryId" : {
+      "title" : "serviceTerritoryId",
+      "description" : "serviceTerritoryId",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "vehicleId" : {
+      "title" : "vehicleId",
+      "description" : "vehicleId",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

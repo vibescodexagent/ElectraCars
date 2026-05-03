@@ -1,0 +1,28 @@
+{
+  "required" : [ "serviceTerritoryId", "preferedStartTime", "vehicleName" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "preferedStartTime" : {
+      "title" : "preferedStartTime",
+      "description" : "preferedStartTime",
+      "lightning:type" : "lightning__dateTimeStringType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "serviceTerritoryId" : {
+      "title" : "serviceTerritoryId",
+      "description" : "serviceTerritoryId",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "vehicleName" : {
+      "title" : "vehicleName",
+      "description" : "vehicleName",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,56 @@
+{
+  "required" : [ "contactNumber", "firstName", "lastName", "mailId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "contactNumber" : {
+      "title" : "contactNumber",
+      "description" : "Contact Number",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "firstName" : {
+      "title" : "firstName",
+      "description" : "First Name",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "lastName" : {
+      "title" : "lastName",
+      "description" : "Last Name",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "leadId" : {
+      "title" : "leadId",
+      "description" : "If you have the value in the leadId variable pass it otherwise pass as null",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "mailId" : {
+      "title" : "mailId",
+      "description" : "Email Id",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "preferredVehicle" : {
+      "title" : "preferredVehicle",
+      "description" : "if end user has confirmed the vehicle provide the preferred vehicle else pass it as null",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "zipCode" : {
+      "title" : "zipCode",
+      "description" : "Zipcode",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

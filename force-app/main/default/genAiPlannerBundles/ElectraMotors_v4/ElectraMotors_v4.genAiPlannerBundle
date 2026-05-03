@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Electra Cars Agent assists customers with vehicle discovery, test drive bookings, product information, and personalized recommendations to deliver a seamless automotive experience.</description>
+    <localTopicLinks>
+        <genAiPluginName>Book_Test_Drive_16jak000001qcDV</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Cancel_Test_Drive_Appointment_16jak000001qcDV</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Collect_UserInformation_16jak000001qcDV</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>GeneralFAQ_16jak000001qcDV</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>GetAvailableTimeSlot_16jak000001qcDV</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Manage_Test_Drive_Booking_16jak000001qcDV</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Reschedule_Test_Drive_16jak000001qcDV</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Slot_Selection_Handler_16jak000001qcDV</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>topic_selector_16jak000001qcDV</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>GeneralFAQ_16jak000001qcDV</fullName>
+        <canEscalate>false</canEscalate>
+        <description>This subagent is for helping answer customer&apos;s questions by searching through the knowledge articles and providing information from those articles. The questions can be about the company and its products, policies or business procedures</description>
+        <developerName>GeneralFAQ_16jak000001qcDV</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179ak0000030GeB</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179ak0000030GeB</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>AnswerQuestionsWithKnowledge_179ak0000030GeB</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>AnswerQuestionsWithKnowledge_179ak0000030GeB</fullName>
+            <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: &apos;What is your return policy?&apos; &apos;How do I fix an issue?&apos; or &apos;What features does a product have?&apos;</description>
+            <developerName>AnswerQuestionsWithKnowledge_179ak0000030GeB</developerName>
+            <invocationTarget>streamKnowledgeSearch</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+            <masterLabel>Answer Questions with Knowledge</masterLabel>
+            <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+            <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+        </localActions>
+        <localDeveloperName>GeneralFAQ</localDeveloperName>
+        <masterLabel>General FAQ</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>Reschedule_Test_Drive_16jak000001qcDV</fullName>
+        <canEscalate>false</canEscalate>
+        <description>This topic is used to Reshedule the Booked Test Drive Appointment</description>
+        <developerName>Reschedule_Test_Drive_16jak000001qcDV</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179ak0000030GeC</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179ak0000030GeC</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Reschedule_TestDrive_Appointment_179ak0000030GeC</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Reschedule_TestDrive_Appointment_179ak0000030GeC</fullName>
+            <description>This action is used to reschedule the test drive appointment</description>
+            <developerName>Reschedule_TestDrive_Appointment_179ak0000030GeC</developerName>
+            <invocationTarget>Reschedule_Test_Drive</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Reschedule_TestDrive_Appointment</localDeveloperName>
+            <masterLabel>Reschedule TestDrive Appointment</masterLabel>
+            <progressIndicatorMessage>Reschedule TestDrive Appointment</progressIndicatorMessage>
+        </localActions>
+        <localDeveloperName>Reschedule_Test_Drive</localDeveloperName>
+        <masterLabel>Reschedule Test Drive</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>Book_Test_Drive_16jak000001qcDV</fullName>
+        <canEscalate>false</canEscalate>
+        <description>This subagent helps the user successfully create a test drive record and book a service appointment, and then sends a final confirmation that includes a brochure download link when available.</description>
+        <developerName>Book_Test_Drive_16jak000001qcDV</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179ak0000030GeD</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179ak0000030GeD</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Test_Drive_179ak0000030GeD</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Test_Drive_179ak0000030GeD</fullName>
+            <description>This action helps user to create to book test drive.</description>
+            <developerName>Test_Drive_179ak0000030GeD</developerName>
+            <invocationTarget>Book_TestDrive</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Test_Drive</localDeveloperName>
+            <masterLabel>Test Drive</masterLabel>
+            <progressIndicatorMessage>Booking Test Drive...</progressIndicatorMessage>
+        </localActions>
+        <localDeveloperName>Book_Test_Drive</localDeveloperName>
+        <masterLabel>Book Test Drive</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>Slot_Selection_Handler_16jak000001qcDV</fullName>
+        <canEscalate>false</canEscalate>
+        <description>This topic is used to identify the object from the availableTimeSlots variable based on the user confirmed slot and assign service resource and vehicle</description>
+        <developerName>Slot_Selection_Handler_16jak000001qcDV</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179ak0000030GeE</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179ak0000030GeE</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>Slot_Selection_Handler</localDeveloperName>
+        <masterLabel>Slot Selection Handler</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>GetAvailableTimeSlot_16jak000001qcDV</fullName>
+        <canEscalate>false</canEscalate>
+        <description>This action is used to get the available Timeslot based on the user confirmed preferred DataTime.
+IMPORTANT: Do not assume preferred time, if user has not provide always request the user to provide preferred time to schedule the test drive appointment.</description>
+        <developerName>GetAvailableTimeSlot_16jak000001qcDV</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179ak0000030GeA</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179ak0000030GeA</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>getTimeSlots_179ak0000030GeA</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>ValidatePreferredDate_179ak0000030GeA</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>ValidatePreferredDate_179ak0000030GeA</fullName>
+            <description>This action is used to validate the preferred Date</description>
+            <developerName>ValidatePreferredDate_179ak0000030GeA</developerName>
+            <invocationTarget>DateTimeConverter</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>ValidatePreferredDate</localDeveloperName>
+            <masterLabel>ValidatePreferredDate</masterLabel>
+            <progressIndicatorMessage>Validating Preferred DateTime...</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>getTimeSlots_179ak0000030GeA</fullName>
+            <description>Fetches available slots based on preferred time, and selected showroom (service territory). Returns structured list of slot objects.</description>
+            <developerName>getTimeSlots_179ak0000030GeA</developerName>
+            <invocationTarget>SlotsSelection</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>getTimeSlots</localDeveloperName>
+            <masterLabel>getTimeSlots</masterLabel>
+            <progressIndicatorMessage>Fetching available slots....</progressIndicatorMessage>
+        </localActions>
+        <localDeveloperName>GetAvailableTimeSlot</localDeveloperName>
+        <masterLabel>GetAvailableTimeSlot</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>topic_selector_16jak000001qcDV</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Welcome the user and determine the appropriate topic based on user input</description>
+        <developerName>topic_selector_16jak000001qcDV</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179ak0000030GeF</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179ak0000030GeF</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>topic_selector</localDeveloperName>
+        <masterLabel>Topic Selector</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>Cancel_Test_Drive_Appointment_16jak000001qcDV</fullName>
+        <canEscalate>false</canEscalate>
+        <description>This topic is used to cancel the scheduled Test Drive appointment</description>
+        <developerName>Cancel_Test_Drive_Appointment_16jak000001qcDV</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179ak0000030GeG</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179ak0000030GeG</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Cancel_Test_Drive_179ak0000030GeG</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Cancel_Test_Drive_179ak0000030GeG</fullName>
+            <description>This action is used to cancel the Test Drive Appointment</description>
+            <developerName>Cancel_Test_Drive_179ak0000030GeG</developerName>
+            <invocationTarget>Cancel_Test_Drive</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>true</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Cancel_Test_Drive</localDeveloperName>
+            <masterLabel>Cancel Test Drive</masterLabel>
+            <progressIndicatorMessage>Cancelling Test Drive Appointment...</progressIndicatorMessage>
+        </localActions>
+        <localDeveloperName>Cancel_Test_Drive_Appointment</localDeveloperName>
+        <masterLabel>Cancel Test Drive Appointment</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>Manage_Test_Drive_Booking_16jak000001qcDV</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Displays upcoming test drives and allows the customer to reschedule or cancel.</description>
+        <developerName>Manage_Test_Drive_Booking_16jak000001qcDV</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179ak0000030GeH</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179ak0000030GeH</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>Manage_Test_Drive_Booking</localDeveloperName>
+        <masterLabel>Manage Test Drive Booking</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>Collect_UserInformation_16jak000001qcDV</fullName>
+        <canEscalate>false</canEscalate>
+        <description>This topic handles collecting user information for Booking, Cancel, and Reschedule flows and create/update the lead</description>
+        <developerName>Collect_UserInformation_16jak000001qcDV</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI Agent.</description>
+            <developerName>instruction0_179ak0000030Ge9</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179ak0000030Ge9</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>update_Lead_179ak0000030Ge9</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Create_Lead_179ak0000030Ge9</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Validate_Vehicle_Name_179ak0000030Ge9</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>dealerShowroom_179ak0000030Ge9</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>update_Lead_179ak0000030Ge9</fullName>
+            <description>Update lead with the Vehicle Preference given by the user.</description>
+            <developerName>update_Lead_179ak0000030Ge9</developerName>
+            <invocationTarget>Create_Lead</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>update_Lead</localDeveloperName>
+            <masterLabel>update Lead</masterLabel>
+            <progressIndicatorMessage>Just a moment....</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>Create_Lead_179ak0000030Ge9</fullName>
+            <description>call this action along with the details collected</description>
+            <developerName>Create_Lead_179ak0000030Ge9</developerName>
+            <invocationTarget>Create_Lead</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Create_Lead</localDeveloperName>
+            <masterLabel>Create Lead</masterLabel>
+            <progressIndicatorMessage>Fetching Data...</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>dealerShowroom_179ak0000030Ge9</fullName>
+            <description>It helps the user in choosing the location for test Drive.</description>
+            <developerName>dealerShowroom_179ak0000030Ge9</developerName>
+            <invocationTarget>Get_Dealers_location</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>dealerShowroom</localDeveloperName>
+            <masterLabel>dealerShowroom</masterLabel>
+            <progressIndicatorMessage>....</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>Validate_Vehicle_Name_179ak0000030Ge9</fullName>
+            <description>This action used to validate the vehicle name provided by the user</description>
+            <developerName>Validate_Vehicle_Name_179ak0000030Ge9</developerName>
+            <invocationTarget>ValidateVehicleAvailability</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Validate_Vehicle_Name</localDeveloperName>
+            <masterLabel>Validate Vehicle Name</masterLabel>
+            <progressIndicatorMessage>Retrieving Data</progressIndicatorMessage>
+        </localActions>
+        <localDeveloperName>Collect_UserInformation</localDeveloperName>
+        <masterLabel>Collect User Information</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <masterLabel>Electra Motors</masterLabel>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <outboundRouteConfigs>
+            <escalationMessage>One moment, I&apos;m transferring our conversation to get you more help.</escalationMessage>
+            <outboundRouteName>Route_to_Service_Agent</outboundRouteName>
+            <outboundRouteType>OmniChannelFlow</outboundRouteType>
+        </outboundRouteConfigs>
+        <surface>SurfaceAction__Messaging</surface>
+        <surfaceType>Messaging</surfaceType>
+    </plannerSurfaces>
+    <plannerType>Atlas__ConcurrentMultiAgentOrchestration</plannerType>
+</GenAiPlannerBundle>

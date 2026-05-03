@@ -1,0 +1,14 @@
+{
+  "required" : [ "preferredDT" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "preferredDT" : {
+      "title" : "preferredDT",
+      "description" : "preferred Date Time",
+      "lightning:type" : "lightning__dateTimeStringType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

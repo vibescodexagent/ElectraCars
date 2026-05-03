@@ -1,0 +1,28 @@
+{
+  "required" : [ "ScheduleEndTime", "scheduleStartTime", "serviceAppointmentId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "ScheduleEndTime" : {
+      "title" : "ScheduleEndTime",
+      "description" : "scheduleEndTime confirmed by the user",
+      "lightning:type" : "lightning__dateTimeStringType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "scheduleStartTime" : {
+      "title" : "scheduleStartTime",
+      "description" : "scheduleStartTime confirmed by the user",
+      "lightning:type" : "lightning__dateTimeStringType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "serviceAppointmentId" : {
+      "title" : "serviceAppointmentId",
+      "description" : "testDriveId confirmed by the user",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
