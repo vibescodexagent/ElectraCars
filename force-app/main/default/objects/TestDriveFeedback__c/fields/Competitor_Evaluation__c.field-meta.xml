@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_Evaluation__c</fullName>
+    <label>Are you evaluating any other vehicles?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No, only Electra cars</fullName>
+                <default>false</default>
+                <label>No, only Electra cars</label>
+            </value>
+            <value>
+                <fullName>1-2 other options</fullName>
+                <default>false</default>
+                <label>1-2 other options</label>
+            </value>
+            <value>
+                <fullName>3 or more options</fullName>
+                <default>false</default>
+                <label>3 or more options</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

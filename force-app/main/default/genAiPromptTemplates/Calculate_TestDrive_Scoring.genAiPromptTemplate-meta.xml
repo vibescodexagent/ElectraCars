@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_3</activeVersionIdentifier>
+    <description>this template is used to score the Test Drive based on the survey completed by the user</description>
+    <developerName>Calculate_TestDrive_Scoring</developerName>
+    <masterLabel>Calculate TestDrive Scoring</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>You are a lead scoring engine for Electra Cars. A customer has completed a post-test-drive survey. Read their answers below and calculate a purchase likelihood score out of 100 using the exact scoring rules provided.
+Scoring rules:
+Q1 — Purchase likelihood (max 20 pts) Definitely will buy = 20 | Very likely = 16 | Considering it = 10 | Undecided = 5 | Unlikely to buy = 0
+Q2 — Purchase timeline (max 15 pts) Within 1 week = 15 | 1–4 weeks = 12 | 1–3 months = 8 | 3–6 months = 4 | No fixed timeline = 0
+Q3 — Driving experience satisfaction (max 10 pts) Excellent = 10 | Good = 7 | Average = 4 | Disappointing = 0
+Q4 — Features that impressed (max 10 pts, multi-select, 2 pts each) Range/battery = 2 | Acceleration = 2 | Cabin comfort = 2 | Tech/infotainment = 2 | ADAS/Safety = 2 | Nothing specific = 0
+Q5 — Day-to-day usage fit (max 5 pts) Yes, perfectly = 5 | Mostly yes = 3 | Partially = 1 | No = 0
+Q6 — Financing readiness (max 10 pts) Fully arranged = 10 | In progress = 7 | Exploring options = 4 | Not yet = 0
+Q7 — Payment mode (max 10 pts) Full cash / bank transfer = 10 | Bank loan (pre-approved) = 8 | Dealership EMI = 6 | Exploring loan options = 3 | Not decided = 0
+Q8 — Test drive vs expectations (max 10 pts) Exceeded expectations = 10 | Met expectations = 6 | Below expectations = 0
+Q9 — Quote interest (max 10 pts) Yes, with accessories = 10 | Yes, base vehicle only = 7 | Send later via WhatsApp = 4 | No thanks = 0
+Q10 — if available, analysis the feedback whether it is positive/neutral/negative
+Score for each question
+Section subtotals: Purchase Intent (Q1+Q2, max 35) | Vehicle Experience (Q3+Q4+Q5, max 25) | Financial Readiness (Q6+Q7, max 20) | Competitive Context (Q8, max 10) | Engagement Signals (Q9, max 10)
+Customer&apos;s answers: 
+Q1: {!$Input:survey.Purchase_Likelihood__c}
+Q2: {!$Input:survey.Expected_Purchase_Date__c}
+Q3: {!$Input:survey.Drive_Satisfaction__c}
+Q4: {!$Input:survey.Top_Features__c}
+Q5: {!$Input:survey.Fit_For_Use__c}
+Q6: {!$Input:survey.Finance_Readiness__c}
+Q7: {!$Input:survey.Payment_Mode__c}
+Q8: {!$Input:survey.Expectation_Match__c}
+Q9: {!$Input:survey.Quote_Interest__c}
+Q10: {!$Input:survey.Post_Drive_Comments__c}
+Output should contain below details:
+Total score out of 100
+Verdict: Very high (80–100) | High (60–79) | Moderate (40–59) | Low (20–39) | Very low (0–19)
+One sentence recommended next action for the sales rep based on the score and answers provided by the  customer. Recommendation should be how to improve that chance of winning the deal or increasing the customer satisfaction to purchase the vehicle
+Output should be in JSON format for example
+{
+&quot;Score&quot;: 83,
+&quot;Verdict&quot;: Very high,
+&quot;Recommendation&quot;: &quot;&quot;
+}
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>survey</apiName>
+            <definition>SOBJECT://TestDriveFeedback__c</definition>
+            <masterLabel>survey</masterLabel>
+            <referenceName>Input:survey</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT54</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a lead scoring engine for Electra Cars. A customer has completed a post-test-drive survey. Read their answers below and calculate a purchase likelihood score out of 100 using the exact scoring rules provided.
+Scoring rules:
+Q1 — Purchase likelihood (max 20 pts) Definitely will buy = 20 | Very likely = 16 | Considering it = 10 | Undecided = 5 | Unlikely to buy = 0
+Q2 — Purchase timeline (max 15 pts) Within 1 week = 15 | 1–4 weeks = 12 | 1–3 months = 8 | 3–6 months = 4 | No fixed timeline = 0
+Q3 — Driving experience satisfaction (max 10 pts) Excellent = 10 | Good = 7 | Average = 4 | Disappointing = 0
+Q4 — Features that impressed (max 10 pts, multi-select, 2 pts each) Range/battery = 2 | Acceleration = 2 | Cabin comfort = 2 | Tech/infotainment = 2 | ADAS/Safety = 2 | Nothing specific = 0
+Q5 — Day-to-day usage fit (max 5 pts) Yes, perfectly = 5 | Mostly yes = 3 | Partially = 1 | No = 0
+Q6 — Financing readiness (max 10 pts) Fully arranged = 10 | In progress = 7 | Exploring options = 4 | Not yet = 0
+Q7 — Payment mode (max 10 pts) Full cash / bank transfer = 10 | Bank loan (pre-approved) = 8 | Dealership EMI = 6 | Exploring loan options = 3 | Not decided = 0
+Q8 — Test drive vs expectations (max 10 pts) Exceeded expectations = 10 | Met expectations = 6 | Below expectations = 0
+Q9 — Quote interest (max 10 pts) Yes, with accessories = 10 | Yes, base vehicle only = 7 | Send later via WhatsApp = 4 | No thanks = 0
+Q10 — if available, analysis the feedback whether it is positive/neutral/negative
+Score for each question
+Section subtotals: Purchase Intent (Q1+Q2, max 35) | Vehicle Experience (Q3+Q4+Q5, max 25) | Financial Readiness (Q6+Q7, max 20) | Competitive Context (Q8, max 10) | Engagement Signals (Q9, max 10)
+Customer&apos;s answers: 
+Q1: {!$Input:survey.Purchase_Likelihood__c}
+Q2: {!$Input:survey.Expected_Purchase_Date__c}
+Q3: {!$Input:survey.Drive_Satisfaction__c}
+Q4: {!$Input:survey.Top_Features__c}
+Q5: {!$Input:survey.Fit_For_Use__c}
+Q6: {!$Input:survey.Finance_Readiness__c}
+Q7: {!$Input:survey.Payment_Mode__c}
+Q8: {!$Input:survey.Expectation_Match__c}
+Q9: {!$Input:survey.Quote_Interest__c}
+Q10: {!$Input:survey.Post_Drive_Comments__c}
+Output should contain below details:
+Total score out of 100
+Verdict: Very high (80–100) | High (60–79) | Moderate (40–59) | Low (20–39) | Very low (0–19)
+One sentence recommended next action for the sales rep based on the score and answers provided by the  customer. Recommendation should be how to improve that chance of winning the deal or increasing the customer satisfaction to purchase the vehicle in 255 letters
+Output should be in JSON format for example
+{
+&quot;Score&quot;: 83,
+&quot;Verdict&quot;: Very high,
+&quot;Recommendation&quot;: &quot;&quot;
+}
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>survey</apiName>
+            <definition>SOBJECT://TestDriveFeedback__c</definition>
+            <masterLabel>survey</masterLabel>
+            <referenceName>Input:survey</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT54</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a lead scoring engine for Electra Cars. A customer has completed a post-test-drive survey. Read their answers below and calculate a purchase likelihood score out of 100 using the exact scoring rules provided.
+Scoring rules:
+Q1 — Purchase likelihood (max 20 pts) Definitely will buy = 20 | Very likely = 16 | Considering it = 10 | Undecided = 5 | Unlikely to buy = 0
+Q2 — Purchase timeline (max 15 pts) Within 1 week = 15 | 1–4 weeks = 12 | 1–3 months = 8 | 3–6 months = 4 | No fixed timeline = 0
+Q3 — Driving experience satisfaction (max 10 pts) Excellent = 10 | Good = 7 | Average = 4 | Disappointing = 0
+Q4 — Features that impressed (max 10 pts, multi-select, 2 pts each) Range/battery = 2 | Acceleration = 2 | Cabin comfort = 2 | Tech/infotainment = 2 | ADAS/Safety = 2 | Nothing specific = 0
+Q5 — Day-to-day usage fit (max 5 pts) Yes, perfectly = 5 | Mostly yes = 3 | Partially = 1 | No = 0
+Q6 — Financing readiness (max 10 pts) Fully arranged = 10 | In progress = 7 | Exploring options = 4 | Not yet = 0
+Q7 — Payment mode (max 10 pts) Full cash / bank transfer = 10 | Bank loan (pre-approved) = 8 | Dealership EMI = 6 | Exploring loan options = 3 | Not decided = 0
+Q8 — Test drive vs expectations (max 10 pts) Exceeded expectations = 10 | Met expectations = 6 | Below expectations = 0
+Q9 — Quote interest (max 10 pts) Yes, with accessories = 10 | Yes, base vehicle only = 7 | Send later via WhatsApp = 4 | No thanks = 0
+Q10 — if available, analysis the feedback whether it is positive/neutral/negative
+Score for each question
+Section subtotals: Purchase Intent (Q1+Q2, max 35) | Vehicle Experience (Q3+Q4+Q5, max 25) | Financial Readiness (Q6+Q7, max 20) | Competitive Context (Q8, max 10) | Engagement Signals (Q9, max 10)
+Customer&apos;s answers: 
+Q1: {!$Input:survey.Purchase_Likelihood__c}
+Q2: {!$Input:survey.Expected_Purchase_Date__c}
+Q3: {!$Input:survey.Drive_Satisfaction__c}
+Q4: {!$Input:survey.Top_Features__c}
+Q5: {!$Input:survey.Fit_For_Use__c}
+Q6: {!$Input:survey.Finance_Readiness__c}
+Q7: {!$Input:survey.Payment_Mode__c}
+Q8: {!$Input:survey.Expectation_Match__c}
+Q9: {!$Input:survey.Quote_Interest__c}
+Q10: {!$Input:survey.Post_Drive_Comments__c}
+Output should contain below details:
+Total score out of 100
+Verdict: Very high (80–100) | High (60–79) | Moderate (40–59) | Low (20–39) | Very low (0–19)
+One sentence recommended next action for the sales rep based on the score and answers provided by the  customer. Recommendation should be how to improve that chance of winning the deal or increasing the customer satisfaction to purchase the vehicle in 1000 letters
+Output should be in JSON format for example
+{
+&quot;Score&quot;: 83,
+&quot;Verdict&quot;: Very high,
+&quot;Recommendation&quot;: &quot;&quot;
+}
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>survey</apiName>
+            <definition>SOBJECT://TestDriveFeedback__c</definition>
+            <masterLabel>survey</masterLabel>
+            <referenceName>Input:survey</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT54</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_3</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

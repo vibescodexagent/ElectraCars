@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <attributeMappings>
+        <attributeName>User_Greet_16jak000001nrgv.postwork_179ak000002v7I9.input_recordId</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>VoiceCallId</mappingTargetName>
+        <mappingType>ContextVariable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>User_Greet_16jak000001nrgv.prework_179ak000002v7I9.input_recordId</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>VoiceCallId</mappingTargetName>
+        <mappingType>ContextVariable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>User_Greet_16jak000001nrgv.reschedulework_179ak000002v7I9.input_recordId</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>VoiceCallId</mappingTargetName>
+        <mappingType>ContextVariable</mappingType>
+    </attributeMappings>
+    <description>This agent helps to guide the Sales Representative with his work.</description>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16jak000001nrgv</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>User_Greet_16jak000001nrgv</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>User_Greet_16jak000001nrgv</fullName>
+        <canEscalate>false</canEscalate>
+        <description>This topic helps the sales rep to know his schedule for today and also he can automatically complete the Test Drive with some feedback.</description>
+        <developerName>User_Greet_16jak000001nrgv</developerName>
+        <genAiPluginInstructions>
+            <description>If user says hi, hello or greets again say &quot;Are you looking for your schedule for the day or share any comment/feedback on a test drive&quot;?</description>
+            <developerName>instructions_0_1777351068729</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777351068729</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When the user selects he wants schedule then everytime call action &quot;prework&quot; and show the output to the user do not use the conversation history.</description>
+            <developerName>instructions_0_1777354927429</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777354927429</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When the user selects he want to share feedback on a test drive/ review/ experience/talk about the test drive/update the details /mark the test drive complete/ cancel the test drive :-
+
+Step 1: Ask him to provide the Test Drive Number. (dont show the user the example/ format you automatically store in that format or I will format the Test Drive Number)
+example: If he says 23 then store as TR-0023 in &quot;TestDriveNumber&quot; or is user says TR 23 then store as TR-0023 in &quot;TestDriveNumber&quot;
+( it is always in format TR-0000 only) if user mistakes ask him to give correctly.
+NOT not include &quot;Make sure it is in the format TR-0000&quot;
+after format ask to user: to confirm the TestDriveNumber. 
+
+Step 2: (check if user provided as cancel or complete in conversation and confirm once if not:-)Ask the user if the test drive was completed? ( dont ask user was cancelled directly understand users intent and store accordingly)
+if user says/told completed--&gt; set &quot;Iscompleted&quot; as True and &quot;IsCancelled&quot; as False.
+if user says/told no its cancelled ---&gt; set &quot;IsCancelled&quot; as True and &quot;Iscompleted&quot; as False.
+Do NOT Ask was it cancelled directly.
+Ask next question dont say &quot;The test drive is marked as completed.&quot;
+if &quot;IsCancelled&quot; is True skip Step 3 and call action directly.
+
+Step 3: Ask the user to provide the details or any comments on this trip report and store in &quot;comment&quot;
+
+Now call the action &quot;postwork&quot; with &quot;comment&quot;, &quot;TestDriveNumber&quot;, &quot;IsCancelled&quot;, &quot;Iscompleted&quot;.
+
+Show the output to user present in &quot;outputMsg&quot;.</description>
+            <developerName>instructions_0_1777385534600</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777385534600</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When user says he wants to reschedule a test drive:
+
+Path 1:- If user asks to reschedule Test Drive and also provides the test drive number (store in &quot;testDriveNumber&quot; in format TR-0000 and don&apos;t ask user to give the same format) then call action &quot;reschedulework&quot; along with the &quot;testDriveNumber&quot;.
+- Display the output in form of lines format not bullentin points ALWAYS
+ - Please confirm if you want to reschedule this.
+
+Path 2:- If user doesn&apos;t provide the &quot;testDriveNumber&quot; then ask if user explicitly if he wants a to see his schedules for the day?
+          If user says &quot;yes&quot; then call action &quot;prework&quot; and show the list(show in sentence/ bulletin points). Based on the number user selected from the list store the test drive number in &quot;testDriveNumber&quot; and now call action &quot;reschedulework&quot; with &quot;testDriveNumber&quot; and later ask for confirmation again.
+
+If user confirms the details then store &quot;rescheduleConfirmed&quot; as True and call action &quot;reschedulework&quot; along with the &quot;testDriveNumber&quot; and &quot;rescheduleConfirmed&quot;</description>
+            <developerName>instructions_0_1777385659179</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777385659179</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If user asks anything not in scope or out of box say you will escalate to live agent.</description>
+            <developerName>instructions_0_1777567664647</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777567664647</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>postwork_179ak000002v7I9</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>prework_179ak000002v7I9</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>reschedulework_179ak000002v7I9</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>postwork_179ak000002v7I9</fullName>
+            <description>This action helps the user to update the existing trip reports.</description>
+            <developerName>postwork_179ak000002v7I9</developerName>
+            <invocationTarget>postwork</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>postwork</localDeveloperName>
+            <mappingAttributes>
+                <label>recordId</label>
+                <name>input_recordId</name>
+                <parameterName>recordId</parameterName>
+                <parameterType>input</parameterType>
+            </mappingAttributes>
+            <masterLabel>postwork</masterLabel>
+            <progressIndicatorMessage>Just a moment i will process your request</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>prework_179ak000002v7I9</fullName>
+            <description>This agent helps the sales representative with the day&apos;s schedule and collects test drive feedback.</description>
+            <developerName>prework_179ak000002v7I9</developerName>
+            <invocationTarget>prework</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>prework</localDeveloperName>
+            <mappingAttributes>
+                <label>recordId</label>
+                <name>input_recordId</name>
+                <parameterName>recordId</parameterName>
+                <parameterType>input</parameterType>
+            </mappingAttributes>
+            <masterLabel>prework</masterLabel>
+            <progressIndicatorMessage>Just a moment...</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>reschedulework_179ak000002v7I9</fullName>
+            <description>This action helps the user to reschedule the test drive</description>
+            <developerName>reschedulework_179ak000002v7I9</developerName>
+            <invocationTarget>reschedulework</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>reschedulework</localDeveloperName>
+            <mappingAttributes>
+                <label>recordId</label>
+                <name>input_recordId</name>
+                <parameterName>recordId</parameterName>
+                <parameterType>input</parameterType>
+            </mappingAttributes>
+            <masterLabel>reschedulework</masterLabel>
+            <progressIndicatorMessage>One moment please...</progressIndicatorMessage>
+        </localActions>
+        <localDeveloperName>User_Greet</localDeveloperName>
+        <masterLabel>Daily Schedule Briefing &amp; Feedback</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Sales rep gets knowledge about his schedule for the day and also provide this update about the test drive he/she completed.</scope>
+    </localTopics>
+    <masterLabel>salesRep Guide</masterLabel>
+    <plannerActions>
+        <fullName>AnswerQuestionsWithKnowledge_16jak000001nrgv</fullName>
+        <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+        <developerName>AnswerQuestionsWithKnowledge_16jak000001nrgv</developerName>
+        <invocationTarget>streamKnowledgeSearch</invocationTarget>
+        <invocationTargetType>standardInvocableAction</invocationTargetType>
+        <isConfirmationRequired>false</isConfirmationRequired>
+        <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+        <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+        <masterLabel>Answer Questions with Knowledge</masterLabel>
+        <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+        <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+    </plannerActions>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__CustomerWebClient</surface>
+        <surfaceType>CustomerWebClient</surfaceType>
+    </plannerSurfaces>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Messaging</surface>
+        <surfaceType>Messaging</surfaceType>
+    </plannerSurfaces>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Telephony</surface>
+        <surfaceType>Telephony</surfaceType>
+    </plannerSurfaces>
+    <plannerType>Atlas__VoiceAgent</plannerType>
+    <ruleExpressions>
+        <conditions>
+            <leftOperand>isVerified</leftOperand>
+            <leftOperandType>Variable</leftOperandType>
+            <operator>equal</operator>
+            <rightOperandValue>true</rightOperandValue>
+        </conditions>
+        <expression>Verified_User</expression>
+        <expressionLabel>Verified User</expressionLabel>
+        <expressionName>Verified_User</expressionName>
+        <expressionType>sel</expressionType>
+    </ruleExpressions>
+    <voiceDefinition>
+        <developerName>salesRep_Guide</developerName>
+        <inboundFillerWordsBool>false</inboundFillerWordsBool>
+        <inboundKeywords>{&quot;keyterm&quot;:[]}</inboundKeywords>
+        <inboundModel>sfdc_ai__Default_Nova_2_PhoneCall</inboundModel>
+        <label>salesRep Guide</label>
+        <languageCode>en_US</languageCode>
+        <outboundModel>sfdc_ai__Default_Eleven_Flash_V2_5</outboundModel>
+        <outboundSimilarity>0.66</outboundSimilarity>
+        <outboundSpeedNum>0.86</outboundSpeedNum>
+        <outboundStability>0.52</outboundStability>
+        <outboundVoice>Jessica</outboundVoice>
+        <pronunciationDict>{&quot;pronunciations&quot;:[]}</pronunciationDict>
+        <voiceIdentifier>g6xIsTj2HwM6VR4iXFCw</voiceIdentifier>
+    </voiceDefinition>
+</GenAiPlannerBundle>

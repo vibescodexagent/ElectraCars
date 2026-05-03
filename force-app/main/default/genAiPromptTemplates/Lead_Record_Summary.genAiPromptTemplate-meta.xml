@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_5</activeVersionIdentifier>
+    <developerName>Lead_Record_Summary</developerName>
+    <masterLabel>Lead Record Summary</masterLabel>
+    <overridable>false</overridable>
+    <relatedEntity>Lead</relatedEntity>
+    <templateVersions>
+        <content>Using the details below, generate a Salesforce record summary formatted as HTML rich text.
+Instructions:
+Summarize the Lead record based on the data below.
+The entire output must be wrapped in one . Only add one tag after each section description. Do not add any other tags.
+Do not generate CSS or code blocks.
+Exclude any section where all fields are empty or contain placeholder values. Do not mention missing data.
+Each section must contain a maximum of three sentences, written concisely in third person and active voice. Emphasize only one key item using .
+Dates must be in &quot;Month Date, Year&quot; format. Currency should use symbols. Spell out numbers below ten.
+Sections allowed (in order only if data exists): Summary, Status, Activities.
+Formatting rules:
+Titles must be wrapped in
+Entire output must be within one tag
+Data:
+Summary Data:
+Lead Name: {!$Input:Lead.Name}
+Record URL: / {!$Input:Lead.Id}
+Company: {!$Input:Lead.Company}
+Title: {!$Input:Lead.Title}
+Industry: {!$Input:Lead.Industry}
+Lead Source: {!$Input:Lead.LeadSource}
+Created Date: {!$Input:Lead.CreatedDate}
+Status: {!$Input:Lead.Status}
+Description: {!$Input:Lead.Status}
+Additional Instructions:
+Also determine Lead Qualification: High, Medium, or Low
+Suggest one clear Next Step for the sales team
+Do NOT repeat raw field values exactly; summarize intelligently
+Output format:
+Status
+Summarize the current lead status and progression.
+Activities
+Summarize recent or upcoming activities if available.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Lead</definition>
+            <referenceName>Input:Lead</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Using the details below, generate a Salesforce record summary formatted as HTML rich text.
+Instructions:
+Summarize the Lead record based on the data below.
+The entire output must be wrapped in one . Only add one tag after each section description. Do not add any other tags.
+Do not generate CSS or code blocks.
+Exclude any section where all fields are empty or contain placeholder values. Do not mention missing data.
+Each section must contain a maximum of three sentences, written concisely in third person and active voice. Emphasize only one key item using .
+Dates must be in &quot;Month Date, Year&quot; format. Currency should use symbols. Spell out numbers below ten.
+Sections allowed (in order only if data exists): Summary, Status, Activities.
+Formatting rules:
+Titles must be wrapped in
+Entire output must be within one tag
+Data:
+Summary Data:
+Lead Name: {!$Input:Lead.Name}
+Record URL: / {!$Input:Lead.Id}
+Company: {!$Input:Lead.Company}
+Title: {!$Input:Lead.Title}
+Industry: {!$Input:Lead.Industry}
+Lead Source: {!$Input:Lead.LeadSource}
+Created Date: {!$Input:Lead.CreatedDate}
+Status: {!$Input:Lead.Status}
+Description: {!$Input:Lead.Status}
+Vehicle Preference: {!$Input:Lead.MasterRecord.Vehicle_preference__c}
+Additional Instructions:
+Also determine Lead Qualification: High, Medium, or Low
+Suggest one clear Next Step for the sales team
+Do NOT repeat raw field values exactly; summarize intelligently
+Output format:
+Data
+Status
+Summarize the current lead status and progression.
+Activities
+Summarize recent or upcoming activities if available.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Lead</definition>
+            <referenceName>Input:Lead</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Using the details below, generate a Salesforce record summary formatted as HTML rich text.
+Instructions:
+Summarize the Lead record based on the data below.
+The entire output must be wrapped in one . Only add one tag after each section description. Do not add any other tags.
+Do not generate CSS or code blocks.
+Exclude any section where all fields are empty or contain placeholder values. Do not mention missing data.
+Each section must contain a maximum of three sentences, written concisely in third person and active voice. Emphasize only one key item using .
+Dates must be in &quot;Month Date, Year&quot; format. Currency should use symbols. Spell out numbers below ten.
+Sections allowed (in order only if data exists): Summary, Status, Activities.
+Formatting rules:
+Titles must be wrapped in
+Entire output must be within one tag
+Data:
+Summary Data:
+Lead Name: {!$Input:Lead.Name}
+Record URL: / {!$Input:Lead.Id}
+Company: {!$Input:Lead.Company}
+Title: {!$Input:Lead.Title}
+Industry: {!$Input:Lead.Industry}
+Lead Source: {!$Input:Lead.LeadSource}
+Created Date: {!$Input:Lead.CreatedDate}
+Status: {!$Input:Lead.Status}
+Description: {!$Input:Lead.Status}
+Vehicle Preference: {!$Input:Lead.Vehicle_preference__c}
+Service Appointment id: {!$Flow:Get_Service_Appointment_From_Lead.Prompt}
+Additional Instructions
+Also determine Lead Qualification: High, Medium, or Low
+Suggest one clear Next Step for the sales team
+Do NOT repeat raw field values exactly; summarize intelligently
+Output format:
+Data
+Status
+Summarize the current lead status and progression.
+Activities
+Summarize recent or upcoming activities if available.  
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Lead</definition>
+            <referenceName>Input:Lead</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Get_Service_Appointment_From_Lead</definition>
+            <label>Get Service Appointment From Lead</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:Lead.Id}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Get_Service_Appointment_From_Lead</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Using the details below, generate a Salesforce record summary formatted as HTML rich text.
+Instructions:
+Summarize the Lead record based on the data below.
+The entire output must be wrapped in one . Only add one tag after each section description. Do not add any other tags.
+Do not generate CSS or code blocks.
+Exclude any section where all fields are empty or contain placeholder values. Do not mention missing data.
+Each section must contain a maximum of three sentences, written concisely in third person and active voice. Emphasize only one key item using .
+Dates must be in &quot;Month Date, Year&quot; format. Currency should use symbols. Spell out numbers below ten.
+Sections allowed (in order only if data exists): Summary, Status, Activities.
+Formatting rules:
+Titles must be wrapped in
+Entire output must be within one tag
+Data:
+Summary Data:
+Lead Name: {!$Input:Lead.Name}
+Record URL: / {!$Input:Lead.Id}
+Company: {!$Input:Lead.Company}
+Title: {!$Input:Lead.Title}
+Industry: {!$Input:Lead.Industry}
+Lead Source: {!$Input:Lead.LeadSource}
+Created Date: {!$Input:Lead.CreatedDate}
+Status: {!$Input:Lead.Status}
+Description: {!$Input:Lead.Status}
+Vehicle Preference: {!$Input:Lead.Vehicle_preference__c}
+Service Appointment : {!$Flow:Get_Service_Appointment_From_Lead.Prompt}
+Additional Instructions
+Include the salesRep is going to assist the entire Test Drive Process and also mention the vehicleName is selected for the test Drive
+Also determine Lead Qualification: High, Medium, or Low
+Suggest one clear Next Step for the sales team
+Do NOT repeat raw field values exactly; summarize intelligently
+Output format:
+Data
+Status
+Summarize the current lead status and progression.
+Activities
+Summarize recent or upcoming activities if available.  
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Lead</definition>
+            <referenceName>Input:Lead</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Get_Service_Appointment_From_Lead</definition>
+            <label>Get Service Appointment From Lead</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:Lead.Id}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Get_Service_Appointment_From_Lead</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Using the details below, generate a Salesforce record summary formatted as HTML rich text.
+Instructions:
+Summarize the Lead record based on the data below.
+The entire output must be wrapped in one . Only add one tag after each section description. Do not add any other tags.
+Do not generate CSS or code blocks.
+Exclude any section where all fields are empty or contain placeholder values. Do not mention missing data.
+Each section must contain a maximum of three sentences, written concisely in third person and active voice. Emphasize only one key item using .
+Dates must be in &quot;Month Date, Year&quot; format. Currency should use symbols. Spell out numbers below ten.
+Sections allowed (in order only if data exists): Summary, Status, Activities.
+Formatting rules:
+Titles must be wrapped in
+Entire output must be within one tag
+Data:
+Summary Data:
+Lead Name: {!$Input:Lead.Name}
+Record URL: / {!$Input:Lead.Id}
+Company: {!$Input:Lead.Company}
+Title: {!$Input:Lead.Title}
+Industry: {!$Input:Lead.Industry}
+Lead Source: {!$Input:Lead.LeadSource}
+Created Date: {!$Input:Lead.CreatedDate}
+Status: {!$Input:Lead.Status}
+Description: {!$Input:Lead.Status}
+Vehicle Preference: {!$Input:Lead.Vehicle_preference__c}
+Service Appointment : {!$Flow:Get_Service_Appointment_From_Lead.Prompt}
+Additional Instructions
+Include the salesRep Name who is going to assist the entire Test Drive Process and also mention the vehicleName which  is selected for the test Drive
+Also determine Lead Qualification: High, Medium, or Low
+Suggest one clear Next Step for the sales team
+Do NOT repeat raw field values exactly; summarize intelligently
+Output format:
+Data
+Status
+Summarize the current lead status and progression.
+Activities
+Summarize recent or upcoming activities if available.  
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Lead</definition>
+            <referenceName>Input:Lead</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Get_Service_Appointment_From_Lead</definition>
+            <label>Get Service Appointment From Lead</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:Lead.Id}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Get_Service_Appointment_From_Lead</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_5</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__recordSummary</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

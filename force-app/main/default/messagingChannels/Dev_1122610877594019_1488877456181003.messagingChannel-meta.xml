@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MessagingChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <automatedResponses>
+        <autoResponseContentType>MessageDefinition</autoResponseContentType>
+        <messageDefinitionName>Inactive_Session</messageDefinitionName>
+        <type>EndUserInactiveResponse</type>
+    </automatedResponses>
+    <automatedResponses>
+        <autoResponseContentType>TextResponse</autoResponseContentType>
+        <language>en_US</language>
+        <response>You&apos;ve opted out of receiving messages from us, so we won&apos;t contact you again.</response>
+        <type>OptOutConfirmation</type>
+    </automatedResponses>
+    <automatedResponses>
+        <autoResponseContentType>TextResponse</autoResponseContentType>
+        <language>en_US</language>
+        <response>Text STOP to opt out of further messages.</response>
+        <type>HelpResponse</type>
+    </automatedResponses>
+    <automatedResponses>
+        <autoResponseContentType>TextResponse</autoResponseContentType>
+        <language>en_US</language>
+        <response>Thanks for opted In, How can we help you?</response>
+        <type>OptInConfirmation</type>
+    </automatedResponses>
+    <channelUsages>
+        <deploymentType>MarketingJourneyBuilder</deploymentType>
+    </channelUsages>
+    <channelUsages>
+        <deploymentType>UnifiedConversation</deploymentType>
+    </channelUsages>
+    <channelUsages>
+        <channelConsentType>ExplicitOptIn</channelConsentType>
+        <deploymentType>MessagingEngagement</deploymentType>
+    </channelUsages>
+    <countryCode>US</countryCode>
+    <externalAccountId>1488877456181003</externalAccountId>
+    <isEstimatedWaitTimeEnabled>false</isEstimatedWaitTimeEnabled>
+    <isQueuePositionEnabled>false</isQueuePositionEnabled>
+    <isSynchronousChatEnabled>false</isSynchronousChatEnabled>
+    <isVoiceModeEnabled>false</isVoiceModeEnabled>
+    <masterLabel>+1 555-947-9446</masterLabel>
+    <messagingChannelType>WhatsApp</messagingChannelType>
+    <messagingKeywords>
+        <keyword>opt-in</keyword>
+        <keyword>opt-in</keyword>
+        <keyword>start</keyword>
+        <keyword>subscribe</keyword>
+        <keyword>yes</keyword>
+        <keywordType>OptIn</keywordType>
+        <language>en_US</language>
+    </messagingKeywords>
+    <messagingKeywords>
+        <keyword>cancel</keyword>
+        <keyword>end</keyword>
+        <keyword>quit</keyword>
+        <keyword>stop</keyword>
+        <keyword>stopall</keyword>
+        <keyword>unsubscribe</keyword>
+        <keywordType>OptOut</keywordType>
+        <language>en_US</language>
+    </messagingKeywords>
+    <messagingKeywords>
+        <keyword>help</keyword>
+        <keywordType>Help</keywordType>
+        <language>en_US</language>
+    </messagingKeywords>
+    <platformKey>1122610877594019</platformKey>
+    <sessionHandlerAsa>ElectraMotors</sessionHandlerAsa>
+    <sessionHandlerQueue>Default_Queue_Agentforce_Contact_Center</sessionHandlerQueue>
+    <sessionHandlerType>AgentforceServiceAgent</sessionHandlerType>
+</MessagingChannel>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_1</activeVersionIdentifier>
+    <description>Formats vehicle records into a readable response</description>
+    <developerName>Get_Vehicles_Response</developerName>
+    <masterLabel>Get Vehicles Response</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>You are an Electra Vehicle assistant.
+
+Task:
+Present a list of vehicles to the user.
+
+Instructions:
+- Use the provided vehicle data
+- Show each vehicle clearly
+- Format nicely
+
+If no data:
+Say &quot;No vehicles available&quot;
+
+Vehicle Data:
+{!$Input:vehicleText}
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>vehicleText</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>vehicleText</masterLabel>
+            <referenceName>Input:vehicleText</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

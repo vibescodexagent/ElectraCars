@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Likelihood__c</fullName>
+    <label>Will you buy this vehicle within 30 days</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Definitely will buy</fullName>
+                <default>false</default>
+                <label>Definitely will buy</label>
+            </value>
+            <value>
+                <fullName>Very likely</fullName>
+                <default>false</default>
+                <label>Very likely</label>
+            </value>
+            <value>
+                <fullName>Considering it</fullName>
+                <default>false</default>
+                <label>Considering it</label>
+            </value>
+            <value>
+                <fullName>Undecided</fullName>
+                <default>false</default>
+                <label>Undecided</label>
+            </value>
+            <value>
+                <fullName>Unlikely to buy</fullName>
+                <default>false</default>
+                <label>Unlikely to buy</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,28 @@
+{
+  "required" : [ "recordId", "testDriveNumber" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "recordId" : {
+      "title" : "recordId",
+      "description" : "this stores the voice call id",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "rescheduleConfirmed" : {
+      "title" : "rescheduleConfirmed",
+      "description" : "This variable stores true when user confirms the test drive details or else false.",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "testDriveNumber" : {
+      "title" : "testDriveNumber",
+      "description" : "this variable stores the test drive number that user wants to reschedule.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

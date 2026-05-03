@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <developerName>reschedulePrompt</developerName>
+    <masterLabel>reschedulePrompt</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>Data:- {!$Input:rescheduleJson}
+
+To ensure the LLM processes this specific data structure accurately, use these direct instructions in your prompt template:
+Parse the input text to identify the originalDT value and the list of slots.
+Identify the target timestamp from the originalDT field.
+Iterate through every slot within the slots array to compare its startTime with the originalDT.
+Locate the specific slot where the startTime is an exact string match for the originalDT.
+Extract the resourceId and the startTime from that matching slot only.
+Format the output as two distinct lines: the first line containing only the Resource ID string, and the second line containing only the Start Time string.
+Exclude all introductory text, explanations, or labels from the final response.
+Return &quot;No Match&quot; if the originalDT does not exist within the provided list of slots.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>rescheduleJson</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>rescheduleJson</masterLabel>
+            <referenceName>Input:rescheduleJson</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Draft</status>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

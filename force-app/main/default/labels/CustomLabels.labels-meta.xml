@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>BoundaryDistance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BoundaryDistance</shortDescription>
+        <value>20</value>
+    </labels>
+    <labels>
+        <fullName>Notify</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notify</shortDescription>
+        <value>Notify_Sales_Rep</value>
+    </labels>
+</CustomLabels>

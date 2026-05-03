@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finance_Readiness__c</fullName>
+    <inlineHelpText>(budget for this purchase)</inlineHelpText>
+    <label>Have you arranged financing or a budget?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fully Arranged</fullName>
+                <default>false</default>
+                <label>Fully Arranged</label>
+            </value>
+            <value>
+                <fullName>In progress</fullName>
+                <default>false</default>
+                <label>In progress</label>
+            </value>
+            <value>
+                <fullName>Exploring options</fullName>
+                <default>false</default>
+                <label>Exploring options</label>
+            </value>
+            <value>
+                <fullName>Not yet</fullName>
+                <default>false</default>
+                <label>Not yet</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

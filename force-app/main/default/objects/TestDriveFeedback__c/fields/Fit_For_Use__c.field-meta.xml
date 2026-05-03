@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fit_For_Use__c</fullName>
+    <inlineHelpText>(day-to-day usage requirement)</inlineHelpText>
+    <label>Does this vehicle meet your requirement?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes, perfectly</fullName>
+                <default>false</default>
+                <label>Yes, perfectly</label>
+            </value>
+            <value>
+                <fullName>Mostly yes</fullName>
+                <default>false</default>
+                <label>Mostly yes</label>
+            </value>
+            <value>
+                <fullName>Partially</fullName>
+                <default>false</default>
+                <label>Partially</label>
+            </value>
+            <value>
+                <fullName>No</fullName>
+                <default>false</default>
+                <label>No</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

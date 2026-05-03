@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Mode__c</fullName>
+    <label>Which payment mode are you considering?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Full cash / bank transfer</fullName>
+                <default>false</default>
+                <label>Full cash / bank transfer</label>
+            </value>
+            <value>
+                <fullName>Bank loan (pre-approved)</fullName>
+                <default>false</default>
+                <label>Bank loan (pre-approved)</label>
+            </value>
+            <value>
+                <fullName>Dealership EMI</fullName>
+                <default>false</default>
+                <label>Dealership EMI</label>
+            </value>
+            <value>
+                <fullName>Exploring loan options</fullName>
+                <default>false</default>
+                <label>Exploring loan options</label>
+            </value>
+            <value>
+                <fullName>Not decided</fullName>
+                <default>false</default>
+                <label>Not decided</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

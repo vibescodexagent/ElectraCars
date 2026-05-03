@@ -1,0 +1,42 @@
+{
+  "required" : [ "IsCancelled", "Iscompleted", "TestDriveNumber", "comments", "recordId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "IsCancelled" : {
+      "title" : "IsCancelled",
+      "description" : "Send True when user says to cancel or send False",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "Iscompleted" : {
+      "title" : "Iscompleted",
+      "description" : "Send True when user says Complete or else send False",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "TestDriveNumber" : {
+      "title" : "TestDriveNumber",
+      "description" : "Ask the user for test drive number and store here.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "comments" : {
+      "title" : "comments",
+      "description" : "Ask the details about the Test drive and store here.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "recordId" : {
+      "title" : "recordId",
+      "description" : "This is voice call Id",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

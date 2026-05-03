@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Summary</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Summary</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>{!saSummary}
+Convert the Date/Time into a display format Ex:- 21st April, 2026 at 5:30 PM
+
+If The Resource Type is Technician then the Resource is Sales Representative and Resource Type is Asset then the Resource is Vehicle chosen for Test Drive.
+
+</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <environments>Default</environments>
+    <interviewLabel>Get Service Appointment From Lead {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Get Service Appointment From Lead</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>PromptFlow</processType>
+    <recordLookups>
+        <name>Get_Assigned_Recourses</name>
+        <label>Get Assigned Recourses</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Summary</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ServiceAppointmentId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Service_Appointment.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>AssignedResource</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Service_Appointment</name>
+        <label>Get Service Appointment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Assigned_Recourses</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ParentRecordId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ServiceAppointment</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Service_Appointment</targetReference>
+        </connector>
+        <triggerType>Capability</triggerType>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>saSummary</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;strong&gt;Please find the Test Drive Booking Details below :&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Booking Id &lt;/strong&gt;: {!Get_Service_Appointment.AppointmentNumber}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Booking Status&lt;/strong&gt; : {!Get_Service_Appointment.Status}&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Scheduled Time : &lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt; From {!Get_Service_Appointment.SchedStartTime} to &lt;/span&gt;{!Get_Service_Appointment.SchedEndTime}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Show Room Name :&lt;/strong&gt;  {!Get_Service_Appointment.ServiceTerritory.Name}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Sales Representative &lt;/strong&gt;and &lt;strong&gt;Vehicle &lt;/strong&gt;: {!Get_Assigned_Recourses}&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

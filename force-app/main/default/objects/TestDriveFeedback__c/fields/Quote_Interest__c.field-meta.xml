@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Interest__c</fullName>
+    <label>Want a personalized quote today?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes, with accessories</fullName>
+                <default>false</default>
+                <label>Yes, with accessories</label>
+            </value>
+            <value>
+                <fullName>Yes, base vehicle only</fullName>
+                <default>false</default>
+                <label>Yes, base vehicle only</label>
+            </value>
+            <value>
+                <fullName>Send later via Whatsapp</fullName>
+                <default>false</default>
+                <label>Send later via Whatsapp</label>
+            </value>
+            <value>
+                <fullName>No thanks</fullName>
+                <default>false</default>
+                <label>No thanks</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

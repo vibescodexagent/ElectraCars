@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_5</activeVersionIdentifier>
+    <description>This prompt takes json as input and provides a clean slots available back.</description>
+    <developerName>slotsAvailable</developerName>
+    <masterLabel>slotsAvailable</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>You are a scheduling assistant for Electra Cars.
+
+Inputs:
+- Slots Data: {!$Input:Slots}
+- Preferred Start Date: {!$Input:preferredStartTime}
+
+Your task:
+
+1. Clean and interpret the input JSON (it may be malformed).
+
+2. Classify each entry:
+  - If skillLevel = 100 → skillType = &quot;asset&quot;
+  - Otherwise → skillType = &quot;resource&quot;
+
+3. Group records by matching:
+  - startTime
+  - endTime
+
+4. Build valid slots:
+  - Each slot must contain:
+   - One asset
+   - One resource (sales rep)
+
+5. For each valid slot, compute priority:
+
+  Priority Rules:
+  - First: Slots closest to Preferred Start Date (this must be top priority)
+  - Second: Higher skillLevel of the sales rep
+
+
+6. Rank all valid slots based on:
+  1. Time difference from preferredStartDate (ascending)
+  2. Sales rep skillLevel (descending)
+
+7. Return ONLY top 5 or 6 slots.
+
+8. Format output clearly:
+
+9. Format the time in a user-friendly way:
+
+- Convert time to IST (Indian Standard Time)
+- Format as: DD MMM YYYY, hh:mm AM/PM
+
+10. After generating valid slots, sort them strictly by startTime in ascending order (earliest to latest). Do not return slots in any other order.
+
+Example output:
+
+Available Slots:
+
+1. Time: new format
+  - Asset ID: &lt;assetId&gt;
+  - Sales Rep ID: &lt;repId&gt;
+  - Territory ID: &lt;territoryId&gt;
+  - Skill Level: &lt;repSkillLevel&gt;
+
+2. Time: new format
+  - Asset ID: &lt;assetId&gt;
+  - Sales Rep ID: &lt;repId&gt;
+  - Territory ID: &lt;territoryId&gt;
+  - Skill Level: &lt;repSkillLevel&gt;
+
+Instructions:
+- Ignore invalid/corrupted records
+- Fix minor formatting issues if possible
+- Remove duplicates
+- Ensure sorting follows priority rules
+- Keep output clean and user-friendly
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Slots</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Slots</masterLabel>
+            <referenceName>Input:Slots</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>preferredStartTime</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>preferredStartTime</masterLabel>
+            <referenceName>Input:preferredStartTime</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a scheduling assistant for Electra Cars.
+
+Inputs:
+- Slots Data: {!$Input:Slots}
+- Preferred Start Date: {!$Input:preferredStartTime}
+
+Your task:
+
+1. Clean and interpret the input JSON (it may be malformed).
+
+2. Classify each entry:
+  - If skillLevel = 100 → skillType = &quot;asset&quot;
+  - Otherwise → skillType = &quot;resource&quot;
+
+3. Group records by matching:
+  - startTime
+  - endTime
+
+4. Build valid slots:
+  - Each slot must contain:
+   - One asset
+   - One resource (sales rep)
+
+5. For each valid slot, compute priority:
+
+  Priority Rules:
+  - First: Slots closest to Preferred Start Date (this must be top priority)
+  - Second: Higher skillLevel of the sales rep
+
+
+6. Rank all valid slots based on:
+  1. Time difference from preferredStartDate (ascending)
+  2. Sales rep skillLevel (descending)
+
+7. Return ONLY top 5 or 6 slots.
+
+8. Format output clearly:
+
+9. Format the time in a user-friendly way:
+
+- Convert time to IST (Indian Standard Time)
+- Format as: DD MMM YYYY, hh:mm AM/PM
+
+10. After generating valid slots, sort them strictly by startTime in ascending order (earliest to latest). Do not return slots in any other order.
+
+IMPORTANT:
+- Return ONLY a JSON array
+- Do NOT return text, explanation, headings, or acknowledgements
+- Each slot must be one JSON object
+- Output must be clean and valid JSON
+
+Example output:
+
+[
+ {
+ &quot;time&quot;: &quot;&lt;startTime&gt; to &lt;endTime&gt;&quot;,
+ &quot;vehicleId&quot;: &quot;&lt;assetId&gt;&quot;,
+ &quot;serviceResourceId&quot;: &quot;&lt;repId&gt;&quot;
+ }
+]
+
+Instructions:
+- Ignore invalid/corrupted records
+- Fix minor formatting issues if possible
+- Remove duplicates
+- Ensure sorting follows priority rules
+- Keep output clean and user-friendly
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Slots</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Slots</masterLabel>
+            <referenceName>Input:Slots</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>preferredStartTime</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>preferredStartTime</masterLabel>
+            <referenceName>Input:preferredStartTime</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a scheduling assistant for Electra Cars.
+
+Inputs:
+- Slots Data: {!$Input:Slots}
+- Preferred Start Date: {!$Input:preferredStartTime}
+
+Your task:
+
+1. Clean and interpret the input JSON (it may be malformed).
+
+2. Classify each entry:
+  - If skillLevel = 100 → skillType = &quot;asset&quot;
+  - Otherwise → skillType = &quot;resource&quot;
+
+3. Group records by matching:
+  - startTime
+  - endTime
+
+4. Build valid slots:
+  - Each slot must contain:
+   - One asset
+   - One resource (sales rep)
+
+5. For each valid slot, compute priority:
+
+  Priority Rules:
+  - First: Slots closest to Preferred Start Date (this must be top priority)
+  - Second: Higher skillLevel of the sales rep
+
+
+6. Rank all valid slots based on:
+  1. Time difference from preferredStartDate (ascending)
+  2. Sales rep skillLevel (descending)
+
+7. Return ONLY top 5 or 6 slots.
+
+8. Format output clearly:
+
+9. Format the time in a user-friendly way:
+
+- Convert time to IST (Indian Standard Time)
+- Format as: DD MMM YYYY, hh:mm AM/PM
+
+10. After generating valid slots, sort them strictly by startTime in ascending order (earliest to latest). Do not return slots in any other order.
+
+IMPORTANT:
+- Return ONLY a JSON array
+- Do NOT return text, explanation, headings, or acknowledgements
+- Each slot must be one JSON object
+- Output must be clean and valid JSON
+
+Example output:
+
+[
+ {
+ &quot;timeSlot&quot;: &quot;&lt;startTime&gt; to &lt;endTime&gt;&quot;,
+ &quot;vehicleId&quot;: &quot;&lt;assetId&gt;&quot;,
+ &quot;serviceResourceId&quot;: &quot;&lt;repId&gt;&quot;
+ }
+]
+
+Instructions:
+- Ignore invalid/corrupted records
+- Fix minor formatting issues if possible
+- Remove duplicates
+- Ensure sorting follows priority rules
+- Keep output clean and user-friendly
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>preferredStartTime</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>preferredStartTime</masterLabel>
+            <referenceName>Input:preferredStartTime</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Slots</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Slots</masterLabel>
+            <referenceName>Input:Slots</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a scheduling assistant for Electra Cars.
+
+Inputs:
+- Slots Data: {!$Input:Slots}
+- Preferred Start Date: {!$Input:preferredStartTime}
+
+Your task:
+
+1. Clean and interpret the input JSON (it may be malformed).
+
+2. Classify each entry:
+  - If skillLevel = 100 → skillType = &quot;asset&quot;
+  - Otherwise → skillType = &quot;resource&quot;
+
+3. Group records by matching:
+  - startTime
+  - endTime
+
+4. Build valid slots:
+  - Each slot must contain:
+   - One asset
+   - One resource (sales rep)
+
+5. For each valid slot, compute priority:
+
+  Priority Rules:
+  - First: Slots closest to Preferred Start Date (this must be top priority)
+  - Second: Higher skillLevel of the sales rep
+
+
+6. Rank all valid slots based on:
+  1. Time difference from preferredStartDate (ascending)
+  2. Sales rep skillLevel (descending)
+
+7. Return ONLY top 5 or 6 slots.
+
+8. Format output clearly:
+
+9. Format the time in a user-friendly way:
+
+- Convert time to IST (Indian Standard Time)
+- Format as: DD MMM YYYY, hh:mm AM/PM
+
+10. After generating valid slots, sort them strictly by startTime in ascending order (earliest to latest). Do not return slots in any other order.
+
+IMPORTANT:
+- Return ONLY a JSON array
+- Do NOT return text, explanation, headings, or acknowledgements
+- Each slot must be one JSON object
+- Output must be clean and valid JSON
+
+Example output:
+
+[
+ {
+ &quot;timeSlot&quot;: &quot;&lt;startTime&gt; to &lt;endTime&gt;&quot;,
+ &quot;vehicleId&quot;: &quot;&lt;assetId&gt;&quot;,
+ &quot;serviceResourceId&quot;: &quot;&lt;resource&gt;&quot;
+ }
+]
+
+Instructions:
+- Ignore invalid/corrupted records
+- Fix minor formatting issues if possible
+- Remove duplicates
+- Ensure sorting follows priority rules
+- Keep output clean and user-friendly
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Slots</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Slots</masterLabel>
+            <referenceName>Input:Slots</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>preferredStartTime</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>preferredStartTime</masterLabel>
+            <referenceName>Input:preferredStartTime</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a scheduling assistant for Electra Cars.
+
+Inputs:
+- Slots Data: {!$Input:Slots}
+- Preferred Start Date: {!$Input:preferredStartTime}
+
+Your task:
+
+1. Clean and interpret the input JSON (it may be malformed).
+
+2. Classify each entry:
+  - If skillLevel = 100 → skillType = &quot;asset&quot;
+  - Otherwise → skillType = &quot;resource&quot;
+
+3. Group records by matching:
+  - startTime
+  - endTime
+
+4. Build valid slots:
+  - Each slot must contain:
+   - One asset
+   - One resource (sales rep)
+
+5. For each valid slot, compute priority:
+
+  Priority Rules:
+  - First: Slots closest to Preferred Start Date (this must be top priority)
+  - Second: Higher skillLevel of the sales rep
+
+
+6. Rank all valid slots based on:
+  1. Time difference from preferredStartDate (ascending)
+  2. Sales rep skillLevel (descending)
+
+7. Return top order slots. (minimun slots to be returned is 6 slots maximum 8 slots)
+
+8. Format output clearly:
+
+9. Format the time in a user-friendly way:
+
+- Format as: DD MMM YYYY, hh:mm AM/PM
+
+10. After generating valid slots, sort them strictly by startTime in ascending order (earliest to latest). Do not return slots in any other order.
+
+IMPORTANT:
+- Return ONLY a JSON array
+- Do NOT return text, explanation, headings, or acknowledgements
+- Each slot must be one JSON object
+- Output must be clean and valid JSON
+
+Example output:
+
+[
+ {
+ &quot;timeSlot&quot;: &quot;&lt;startTime&gt; to &lt;endTime&gt;&quot;,
+ &quot;vehicleId&quot;: &quot;&lt;assetId&gt;&quot;,
+ &quot;serviceResourceId&quot;: &quot;&lt;resource&gt;&quot;
+ }
+]
+
+Instructions:
+- Ignore invalid/corrupted records
+- Fix minor formatting issues if possible
+- Remove duplicates
+- Ensure sorting follows priority rules
+- Keep output clean and user-friendly
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>preferredStartTime</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>preferredStartTime</masterLabel>
+            <referenceName>Input:preferredStartTime</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Slots</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Slots</masterLabel>
+            <referenceName>Input:Slots</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>EG44j0z7K+XXyFgsAw+/rqad2nK/K15ULUFlG3EwDfc=_5</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

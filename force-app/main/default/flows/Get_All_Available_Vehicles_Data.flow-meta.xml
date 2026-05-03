@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Get_Vehicle_Response_Prompt</name>
+        <label>Get Vehicle Response Prompt</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>Get_Vehicles_Response</actionName>
+        <actionType>generatePromptResponse</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>Input:vehicleText</name>
+            <value>
+                <elementReference>vehicleText</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Get_Vehicles_Response</nameSegment>
+        <offset>0</offset>
+        <outputParameters>
+            <assignToReference>responseText</assignToReference>
+            <name>promptResponse</name>
+        </outputParameters>
+    </actionCalls>
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_if_No_vehicles_found</name>
+        <label>Assign if No vehicles found</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>responseText</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>&quot;No vehicles available&quot;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Vehicle_Response_Prompt</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Vehicle_Details</name>
+        <label>Assign Vehicle Details</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>vehicleText</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>VehicleLineFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Vehicles</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_Vehicles_Found</name>
+        <label>Check Vehicles Found</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Assign_if_No_vehicles_found</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Vehicles Not Found</defaultConnectorLabel>
+        <rules>
+            <name>Vehicle_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Vehicle_Data</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Vehicles</targetReference>
+            </connector>
+            <label>Vehicles Found</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>VehicleLineFormula</name>
+        <dataType>String</dataType>
+        <expression>&quot;Name: &quot; &amp; {!Loop_Vehicles.Name} &amp; &quot;\n&quot; &amp;
+&quot;Body Type: &quot; &amp; {!Loop_Vehicles.BodyType} &amp; &quot;\n&quot; &amp;
+&quot;Model: &quot; &amp; {!Loop_Vehicles.ModelCode} &amp; &quot;\n&quot; &amp;
+&quot;Top Speed: &quot; &amp; {!Loop_Vehicles.TopSpeed} &amp; &quot;\n&quot; &amp;
+&quot;Battery Capacity: &quot; &amp; {!Loop_Vehicles.BatteryCapacity} &amp; &quot;\n\n&quot;</expression>
+    </formulas>
+    <interviewLabel>Get All Available Vehicles Data {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Get All Available Vehicles Data</label>
+    <loops>
+        <name>Loop_Vehicles</name>
+        <label>Loop Vehicles</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Vehicle_Data</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Vehicle_Details</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_Vehicle_Response_Prompt</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Vehicle_Data</name>
+        <label>Get Vehicle Data</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_Vehicles_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsDeleted</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>IsLocked</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>VehicleDefinition</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Vehicle_Data</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>leadName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>responseText</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>vehicleText</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>
